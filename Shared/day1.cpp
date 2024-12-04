@@ -27,18 +27,3 @@ std::string arg_infile(int argc, char* argv[]) {
 	}
 	return std::string(argv[1]);
 }
-
-int main(int argc, char* argv[])
-{
-	
-	auto infile = arg_infile(argc, argv);
-
-	InputData inputData(infile);
-	std::sort(std::begin(inputData.left), std::end(inputData.left));
-	std::sort(std::begin(inputData.right), std::end(inputData.right));
-	long total = 0;
-	for (int i = 0; i < inputData.left.size(); i++) {
-		total += std::abs(inputData.right[i] - inputData.left[i]);
-	}
-	std::cout << "total: " << total << " size: " << inputData.left.size() << '\n';
-}
